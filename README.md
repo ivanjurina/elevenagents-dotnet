@@ -1,5 +1,9 @@
 # ElevenAgents.Net: realtime ElevenLabs agents from .NET
 
+[![NuGet](https://img.shields.io/nuget/v/ElevenAgents.Net.svg)](https://www.nuget.org/packages/ElevenAgents.Net/) [![NuGet downloads](https://img.shields.io/nuget/dt/ElevenAgents.Net.svg)](https://www.nuget.org/packages/ElevenAgents.Net/)
+
+📦 **NuGet:** [ElevenAgents.Net](https://www.nuget.org/packages/ElevenAgents.Net) · [ElevenAgents.Net.SemanticKernel](https://www.nuget.org/packages/ElevenAgents.Net.SemanticKernel)
+
 unofficial .net client for the [ElevenLabs Agents platform](https://elevenlabs.io/docs/eleven-agents/overview). official sdks exist for python, typescript, kotlin and swift. nothing for .net. this fills that gap.
 
 not affiliated with ElevenLabs. complements the excellent community [ElevenLabs-DotNet](https://github.com/RageAgainstThePixel/ElevenLabs-DotNet) library, which covers tts, voices, dubbing and more; this library covers what it doesn't: realtime agent conversations.
