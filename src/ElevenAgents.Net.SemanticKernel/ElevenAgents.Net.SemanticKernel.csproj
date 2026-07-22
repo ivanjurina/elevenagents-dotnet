@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591;SKEXP0001</NoWarn>
+
+    <PackageId>ElevenAgents.Net.SemanticKernel</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Ivan Jurina</Authors>
+    <Description>Bridge between Microsoft Semantic Kernel and the ElevenLabs Agents platform: expose your kernel's functions as ElevenLabs client tools so your voice agent can call your existing .NET code. Not affiliated with ElevenLabs.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>elevenlabs;agents;semantic-kernel;voice;ai-agents;conversational-ai</PackageTags>
+    <RepositoryUrl>https://github.com/ivanjurina/elevenagents-dotnet</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="/" />
+    <ProjectReference Include="../ElevenAgents.Net/ElevenAgents.Net.csproj" />
+    <PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.32.0" />
+  </ItemGroup>
+</Project>

@@ -19,3 +19,5 @@ jobs:
         run: dotnet build --no-restore -c Release
       - name: smoke tests
         run: dotnet run --project tests/ElevenAgents.Net.SmokeTests -c Release
+      - name: semantic kernel bridge tests
+        run: dotnet run --project tests/ElevenAgents.Net.SemanticKernel.Tests -c Release

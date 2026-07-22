@@ -66,11 +66,31 @@ voice: send microphone chunks with `SendAudioChunkAsync` (format from `conversat
 dotnet run --project tests/ElevenAgents.Net.SmokeTests
 ```
 
+## give your agent access to your .NET code (Semantic Kernel bridge)
+
+The companion package [`ElevenAgents.Net.SemanticKernel`](src/ElevenAgents.Net.SemanticKernel)
+turns every function in a Semantic Kernel `Kernel` into an ElevenLabs client tool. The agent
+handles speech, the LLM, and voice; your existing C# runs when the agent needs it:
+
+```csharp
+using ElevenAgents.Net.SemanticKernel;
+
+var kernel = Kernel.CreateBuilder().Build();
+kernel.Plugins.AddFromType<OrdersPlugin>("orders");
+
+await using var conversation = await AgentConversation.ConnectAsync(
+    new ConversationOptions { AgentId = "your_agent_id" });
+
+KernelToolBridge.Register(conversation, kernel); // one line, every function is now a tool
+```
+
+See `samples/VoiceAgentWithTools` for a full runnable example.
+
 ## roadmap
 
 - webrtc transport for browser-parity voice latency
 - typed agent configuration models (create/update agents from c#)
-- Microsoft Agent Framework / Semantic Kernel bridge: expose kernel functions as client tools automatically
+- Microsoft Agent Framework bridge (same idea as the Semantic Kernel one)
 - multi-context websocket support
 
 ## license
