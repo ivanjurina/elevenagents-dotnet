@@ -93,7 +93,7 @@ static async Task<(FakeTransport transport, List<ConversationEvent> events)> Run
 // ---------- audio event ----------
 {
     var payload = Convert.ToBase64String(new byte[] { 1, 2, 3, 4 });
-    var audio = $$"""{"type":"audio","audio_event":{"audio_base_64":"{{payload}}","event_id":5}}""";
+    var audio = "{\"type\":\"audio\",\"audio_event\":{\"audio_base_64\":\"" + payload + "\",\"event_id\":5}}";
     var (_, events) = await RunConversation(new ConversationOptions { AgentId = "a" }, null, audio);
     var evt = events.OfType<AudioEvent>().FirstOrDefault();
     Assert(evt is not null && evt.EventId == 5, "audio event parsed");
